@@ -6,7 +6,7 @@
 #    By: fcodi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/05 17:56:52 by fcodi             #+#    #+#              #
-#    Updated: 2019/07/15 12:12:28 by fcodi            ###   ########.fr        #
+#    Updated: 2019/07/17 16:09:52 by fcodi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libft.a
 
 ARFLAGS = rc
 
-CFLAGS = -Wall -Werror -Wextra -c -Iincludes -MD -pipe
+CFLAGS = -Wall -Werror -Wextra -c -Iincludes
 
 CC = gcc
 
@@ -38,8 +38,6 @@ SRC =   ft_isprint.c ft_lstnew.c ft_memmove.c ft_putnbr_fd.c ft_strcpy.c \
 
 OBJ = $(SRC:.c=.o)
 
-MD = $(SRC:.c=.d)
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -49,7 +47,6 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $<
 
 clean:
-	$(RM) $(MD)
 	$(RM) $(OBJ)
 
 fclean: clean

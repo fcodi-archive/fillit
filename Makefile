@@ -6,7 +6,7 @@
 #    By: fcodi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/05 17:56:52 by fcodi             #+#    #+#              #
-#    Updated: 2019/07/15 12:11:53 by fcodi            ###   ########.fr        #
+#    Updated: 2019/07/17 16:09:52 by fcodi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -Iincludes -MD -pipe -o $@
+CFLAGS = -Wall -Werror -Wextra -Iincludes -o $@
 
 LIB_MAKE = $(MAKE) -C $(LIB_DIR)
 
@@ -27,8 +27,6 @@ NAME = fillit
 SRC = main.c prelude.c utils.c
 
 OBJ = $(SRC:.c=.o)
-
-MD = $(SRC:.c=.d)
 
 all: $(LIB_DIR)/%.c $(NAME)
 
@@ -46,7 +44,6 @@ fclean: clean
 	$(LIB_MAKE) fclean
 
 clean:
-	$(RM) $(MD)
 	$(RM) $(OBJ)
 	$(LIB_MAKE) clean
 

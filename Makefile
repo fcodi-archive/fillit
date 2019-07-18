@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fcodi <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: fcodi <fcodi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/05 17:56:52 by fcodi             #+#    #+#              #
-#    Updated: 2019/07/17 16:09:52 by fcodi            ###   ########.fr        #
+#    Updated: 2019/07/17 21:14:30 by fcodi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all re clean fclean
+.PHONY: all re clean fclean libft
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -Iincludes -o $@
+CFLAGS = -Wall -Werror -Wextra -I. -o $@
 
 LIB_MAKE = $(MAKE) -C $(LIB_DIR)
 
@@ -28,12 +28,15 @@ SRC = main.c prelude.c utils.c
 
 OBJ = $(SRC:.c=.o)
 
-all: $(LIB_DIR)/%.c $(NAME)
+all: libft $(NAME)
 
 $(NAME): $(LIB) $(OBJ)
 	$(CC) $(CFLAGS) -Llibft -lft $(OBJ)
 
-$(LIB_DIR)/%.c:
+libft:
+	$(LIB_MAKE)
+
+%.a:
 	$(LIB_MAKE)
 
 %.o: %.c

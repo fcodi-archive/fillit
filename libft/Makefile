@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fcodi <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: fcodi <fcodi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/05 17:56:52 by fcodi             #+#    #+#              #
-#    Updated: 2019/07/17 16:09:52 by fcodi            ###   ########.fr        #
+#    Updated: 2019/07/17 21:15:09 by fcodi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libft.a
 
 ARFLAGS = rc
 
-CFLAGS = -Wall -Werror -Wextra -c -Iincludes
+CFLAGS = -Wall -Werror -Wextra -c -I.
 
 CC = gcc
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 static int	get_start_end(const char *s, size_t *start, size_t *end)
 {

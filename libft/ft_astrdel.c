@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_astrdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcodi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: fcodi <fcodi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 05:16:27 by fcodi             #+#    #+#             */
+/*   Created: 2019/04/27 18:20:02 by fcodi             #+#    #+#             */
 /*   Updated: 2019/07/06 01:00:45 by fcodi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(const char *s, int fd)
+void			ft_astrdel(char **astr, size_t nstr)
 {
-	if (s && fd)
-		write(fd, s, ft_strlen(s));
+	while (nstr > 0)
+		ft_strdel(&astr[nstr--]);
+	ft_strdel(astr);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 int		ft_strnequ(char const *s1, const char *s2, size_t n)
 {

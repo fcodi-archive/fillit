@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 size_t	ft_strnchri(const char *string, const char c, const size_t i)
 {

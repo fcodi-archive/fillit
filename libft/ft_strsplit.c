@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 static int			ft_word_counter(char const *s, char c)
 {
@@ -48,7 +48,7 @@ static void			ft_splitcore(char const *s, char c, char **astr, int nword)
 				wordsize++;
 			if (wordsize <= 0 || !(astr[j] = ft_strnew((size_t)wordsize)))
 			{
-				ft_astr_del(astr);
+				ft_astrdel(astr, (size_t)j);
 				break ;
 			}
 			wordsize = 0;

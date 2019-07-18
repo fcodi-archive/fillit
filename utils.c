@@ -6,14 +6,14 @@
 /*   By: fcodi <fcodi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 22:23:13 by fcodi             #+#    #+#             */
-/*   Updated: 2019/07/09 21:42:07 by fcodi            ###   ########.fr       */
+/*   Updated: 2019/07/17 21:14:47 by fcodi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
-void			clear_start_positions(t_tetramino *t, int ntetramino,
-		const int max_tetraminos)
+void			clear_start_positions(t_tetramino t[26],
+		unsigned int ntetramino, const unsigned int max_tetraminos)
 {
 	while (ntetramino < max_tetraminos)
 	{
@@ -23,8 +23,8 @@ void			clear_start_positions(t_tetramino *t, int ntetramino,
 	}
 }
 
-void			put_tetramino_init(t_tetramino *t,
-		const int ntetramino, int *x, int *y)
+void			put_tetramino_init(t_tetramino t[26],
+		const unsigned int ntetramino, int *x, int *y)
 {
 	if (t[ntetramino].x[LAST_POINT] != -1)
 		*x = t[ntetramino].x[LAST_POINT] + 1;

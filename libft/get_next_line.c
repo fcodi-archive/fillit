@@ -6,11 +6,11 @@
 /*   By: fcodi <fcodi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 08:30:13 by fcodi             #+#    #+#             */
-/*   Updated: 2019/07/15 11:53:33 by fcodi            ###   ########.fr       */
+/*   Updated: 2019/07/06 01:00:45 by fcodi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/get_next_line.h"
+#include "get_next_line.h"
 
 static t_file	*tfile_new(const int fd, const int flag)
 {

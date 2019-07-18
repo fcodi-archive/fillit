@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 static size_t	ft_get_available_size(const char *dst, size_t cat_size)
 {

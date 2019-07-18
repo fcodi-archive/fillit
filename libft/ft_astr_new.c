@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char	**ft_astr_new(const unsigned int size_x, const unsigned int size_y)
 {

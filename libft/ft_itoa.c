@@ -6,11 +6,11 @@
 /*   By: fcodi <fcodi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 15:30:15 by fcodi             #+#    #+#             */
-/*   Updated: 2019/07/10 19:48:15 by fcodi            ###   ########.fr       */
+/*   Updated: 2019/07/06 01:00:45 by fcodi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char	*ft_itoa(int n)
 {

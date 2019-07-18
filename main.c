@@ -6,14 +6,14 @@
 /*   By: fcodi <fcodi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 19:23:16 by fcodi             #+#    #+#             */
-/*   Updated: 2019/07/10 17:47:15 by fcodi            ###   ########.fr       */
+/*   Updated: 2019/07/17 21:14:46 by fcodi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
-int		put_tetramino_write(char **table, t_tetramino *t, const int nt,
-		const int size)
+int		put_tetramino_write(char **table, t_tetramino *t,
+		const int nt, const int size)
 {
 	int			ns;
 	const int	x = t[nt].x[CURRENT];
@@ -23,8 +23,8 @@ int		put_tetramino_write(char **table, t_tetramino *t, const int nt,
 		return (ERROR);
 	ns = 0;
 	while (++ns < 4 && x + t[nt].x[ns] < size && x + t[nt].x[ns] >= 0
-	&& y + t[nt].y[ns] < size && y + t[nt].y[ns] >= 0
-	&& table[y + t[nt].y[ns]][x + t[nt].x[ns]] == '.')
+	&& y + t[nt].y[ns] < size
+	&& y + t[nt].y[ns] >= 0 && table[y + t[nt].y[ns]][x + t[nt].x[ns]] == '.')
 		continue;
 	if (ns != 4)
 		return (ERROR);
@@ -37,8 +37,8 @@ int		put_tetramino_write(char **table, t_tetramino *t, const int nt,
 	return (OK);
 }
 
-int		put_tetramino(char **table, t_tetramino *t, const int nt,
-		const int size)
+int		put_tetramino(char **table, t_tetramino t[26],
+		const int nt, const int size)
 {
 	int		x;
 	int		y;
@@ -60,13 +60,14 @@ int		put_tetramino(char **table, t_tetramino *t, const int nt,
 	return (NOT_ENOUGH_SPACE);
 }
 
-int		fill(t_tetramino *t, const int max_tetraminos, const int size)
+int		fill(t_tetramino t[26], const unsigned int max_tetraminos,
+		const unsigned int size)
 {
 	char			**table;
-	int				ntetramino;
+	unsigned int	ntetramino;
 	int				result;
 
-	if (!(table = ft_astr_new((unsigned)size, (unsigned)size)))
+	if (!(table = ft_astr_new(size, size)))
 		return (ERROR);
 	ntetramino = 0;
 	ft_astr_fill_c(table, size, '.');
@@ -88,10 +89,10 @@ int		fill(t_tetramino *t, const int max_tetraminos, const int size)
 	return (OK);
 }
 
-int		fillit(t_tetramino *t, const int ntetramino)
+int		fillit(t_tetramino t[26], const unsigned int ntetramino)
 {
-	int			size;
-	int			result;
+	unsigned int	size;
+	int				result;
 
 	result = 777;
 	size = min_size_of_table(ntetramino * 4);
@@ -109,7 +110,7 @@ int		fillit(t_tetramino *t, const int ntetramino)
 int		main(int argc, char **argv)
 {
 	t_tetramino		t[26];
-	int				ntetramino;
+	unsigned int	ntetramino;
 	int				result;
 
 	result = OK;

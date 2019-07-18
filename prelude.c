@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   prelude.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcodi <fcodi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 22:09:10 by fcodi             #+#    #+#             */
-/*   Updated: 2019/07/09 23:02:34 by fcodi            ###   ########.fr       */
+/*   Updated: 2019/07/17 21:14:48 by fcodi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 int		validate_file(const char *file, const int nread,
-		int *ntetramino)
+		unsigned int *ntetramino)
 {
 	int		i;
 
@@ -29,8 +29,7 @@ int		validate_file(const char *file, const int nread,
 		continue;
 	if (i != -1)
 		return (ERROR);
-	if ((*ntetramino = ((nread + 1) / 21)) < 1 || *ntetramino > 26)
-		return (ERROR);
+	*ntetramino = (unsigned int)((nread + 1) / 21);
 	if (ft_nsym(file, '#') != (4 * *ntetramino)
 		|| ft_nsym(file, '.') != (12 * *ntetramino)
 		|| ft_nsym(file, '\n') != ((4 * *ntetramino) + (*ntetramino - 1)))
@@ -80,7 +79,7 @@ int		validate_tetraminos(const char *file, const int nread)
 	return (OK);
 }
 
-void	tetramino_fill(const char *file, t_tetramino *t)
+void	tetramino_fill(const char *file, t_tetramino t[26])
 {
 	const int	max_tetraminos = ((int)ft_strlen(file) + 1) / 21;
 	int			ntetramino;
@@ -101,14 +100,14 @@ void	tetramino_fill(const char *file, t_tetramino *t)
 					((i - (ntetramino * 21)) % 5) - sampler[SAMPLER_X];
 			t[ntetramino].y[nsharp] =
 					((i - (ntetramino * 21)) / 5) - sampler[SAMPLER_Y];
-			i = (int)ft_strnchri(file, '#', (size_t)i + 1);
+			i = (int)ft_strnchri(file, '#', (unsigned int)i + 1);
 		}
 		t[ntetramino].x[LAST_POINT] = -1;
 		t[ntetramino].y[LAST_POINT] = -1;
 	}
 }
 
-int		prelude(const char *path, t_tetramino *t, int *ntetramino)
+int		prelude(const char *path, t_tetramino t[26], unsigned int *ntetramino)
 {
 	char	file[FILE_MAX_LENGTH + 1];
 	int		result;
